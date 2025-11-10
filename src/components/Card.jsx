@@ -3,15 +3,12 @@ import PropTypes from "prop-types";
 const Card = ({img}) => {
   return (
     <div
-      className="card col m-2"
-      style={{
-        width: "125rem",
-      }}
+      className="card rounded-lg overflow-hidden shadow-md"
     >
       <img
         src={img}
-        className="card-img-top"
         alt="imagen.png"
+        className="w-full aspect-[4/3] object-cover"
       />
     </div>
   );
