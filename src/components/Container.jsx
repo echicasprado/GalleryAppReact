@@ -13,6 +13,7 @@ const Container = () => {
   const getImages = useCallback(async () => {
     setLoading(true);
     setError(null);
+
     try {
       const fotos = await fetchImages(query);
       setImages(fotos);
@@ -29,12 +30,16 @@ const Container = () => {
   }, [getImages]);
 
   return (
-    <div className="container border row" style={{ padding: "20px" }}>
+    <section className="container border row" style={{ padding: "20px" }}>
       <SearchBar onSearch={setQuery} />
       {loading && <Loading />}
       {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
-      <Cards images={images} />
-    </div>
+      {!loading && !error && (
+        <div className="w-full mt-6">
+          <Cards images={images} />
+        </div>
+      )}
+    </section>
   );
 };
 
