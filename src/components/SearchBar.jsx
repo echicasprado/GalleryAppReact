@@ -7,6 +7,7 @@ const SearchBar = ({ onSearch }) => {
     e.preventDefault();
     if (text.trim() === "") return;
     onSearch(text);
+    setTimeout(() => setText(''),100);
   };
 
   return (
